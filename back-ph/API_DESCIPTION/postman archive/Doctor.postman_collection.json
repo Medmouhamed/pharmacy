@@ -1,0 +1,135 @@
+{
+  "info": {
+    "_postman_id": "708af880-7910-4d58-a9b8-91cc164fc78d",
+    "name": "Doctor",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-708af880-7910-4d58-a9b8-91cc164fc78d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET DOCTORS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/doctors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "doctors"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | استعراض قائمة الأطباء بالكامل |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/doctors` |\n| **الوصف المنطقي** | تنفيذ استعلام جلب كافة بيانات الأطباء وتخصصاتهم من جدول `DOCTOR`. |\n| **الرد الناجح** | `200 OK` مع مصفوفة JSON تحتوي على جميع سجلات الأطباء. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET DOCTOR BY ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/doctors/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "doctors",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | البحث عن طبيب بواسطة المعرف |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/doctors/:id_doctor` |\n| **الوصف المنطقي** | البحث عن طبيب معين باستخدام معرفه الرقمي الفريد `ID_D` الممرر في الرابط. |\n| **الرد الناجح** | `200 OK` مع بيانات الطبيب، أو `404` في حال عدم وجوده. |"
+      },
+      "response": []
+    },
+    {
+      "name": "POST DOCTOR",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"NAME_D\": \"John Smith\",\r\n    \"SPECIALITY\": \"General Medicine\",\r\n    \"ADDRESS\": \"New York - Manhattan\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/doctors/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "doctors",
+            "add"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تسجيل طبيب جديد في النظام |\n| **الطريقة (Method)** | `POST` |\n| **الرابط (URL)** | `http://localhost:3000/doctors/add` |\n| **الوصف المنطقي** | إدخال سجل جديد يحتوي على (الاسم، التخصص، العنوان) مع تفعيل الحفظ التلقائي `autoCommit`. |\n| **الرد الناجح** | `200 OK` مع رسالة تأكيد نجاح العملية 🟢. |"
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE DOCTORS",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/doctors/delete/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "doctors",
+            "delete",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | حذف طبيب من قاعدة البيانات |\n| **الطريقة (Method)** | `DELETE` |\n| **الرابط (URL)** | `http://localhost:3000/doctors/delete/:id_doctor` |\n| **الوصف المنطقي** | حذف الطبيب مع التحقق برمجياً من وجود سجلات طبية مرتبطة به لمنع حذف الأطباء النشطين. |\n| **الرد الناجح** | `200 OK` في حال الحذف، أو `409` إذا وُجدت سجلات تمنع الحذف. |"
+      },
+      "response": []
+    },
+    {
+      "name": "UPDATE DOCTOR",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n        \"NAME_D\": \"John Smith\",\r\n        \"SPECIALITY\": \"General Medicine\",\r\n        \"ADDRESS\": \"Geulma - Manhattan\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/doctors/update/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "doctors",
+            "update",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تعديل بيانات طبيب موجود |\n| **الطريقة (Method)** | `PUT` |\n| **الرابط (URL)** | `http://localhost:3000/doctors/update/:id_doctor` |\n| **الوصف المنطقي** | تحديث حقول (الاسم، التخصص، العنوان) والتحقق عبر `rowsAffected` من وجود السجل قبل التحديث. |\n| **الرد الناجح** | `200 OK` مع رسالة تأكيد التعديل أو `404` في حال عدم وجود الطبيب. |"
+      },
+      "response": []
+    }
+  ]
+}

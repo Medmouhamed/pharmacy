@@ -1,0 +1,284 @@
+
+
+@import url('navbar.css');
+@import url('about.css');
+@import url('contact.css');
+@import url('footer.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+.blurred {
+    filter: blur(10px);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    padding: 50px;
+    
+    border-radius: 20px;
+    text-align: center;
+    width: 95%;
+    max-width: 900px;
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.modal-cards {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.m-card {
+    flex: 1;
+    padding: 40px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-card:hover {
+    background: #f8fbff;
+    border-color: #007bff;
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+}
+
+.m-card i {
+    font-size: 3.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.m-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.m-card span {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 8%;
+    min-height: 80vh;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.shop-now-btn {
+    padding: 15px 40px;
+    border: 2px solid #007bff;
+    background: transparent;
+    color: #007bff;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shop-now-btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+
+
+.quick-access {
+    padding: 80px 8%;
+    background-color: #dfe9f3;
+
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.access-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid #e1e8ed;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.access-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
+    border-color: #007bff;
+}
+
+.decrp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #e7ffe7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+}
+
+.icon-box i {
+    font-size: 1.8rem;
+    color: #007bff;
+}
+
+.access-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+
+}
+
+.access-card p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.link-text {
+    color: #007bff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.link-text i {
+    transition: transform 0.3s;
+}
+
+.access-card:hover .link-text i {
+    transform: translateX(5px);
+}
+
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        margin-top: 40px;
+    }
+
+    .modal-cards {
+        flex-direction: column;
+    }
+
+    .m-card {
+        padding: 25px;
+    }
+}

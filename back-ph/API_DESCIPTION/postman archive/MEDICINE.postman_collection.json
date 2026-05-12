@@ -1,0 +1,157 @@
+{
+  "info": {
+    "_postman_id": "73ea6dd6-5d2f-4105-8fd0-052e16466074",
+    "name": "MEDICINE",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-73ea6dd6-5d2f-4105-8fd0-052e16466074?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET MEDICINES",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/medicines",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | جلب القائمة الكاملة للأدوية (Inventory Catalog) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/medicines` |\n| **الوصف المنطقي** | يقوم باستخراج كافة سجلات الأدوية من جدول `MEDICINE` في قاعدة البيانات. |\n| **الرد الناجح (Success)** | `200 OK` مع مصفوفة (Array) تحتوي على كافة الأدوية بتنسيق JSON. |\n| **الرد الفاشل (Error)** | `500 Server Error` في حال وجود مشكلة في الاتصال بقاعدة البيانات. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET MEDICINE BY NAME",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/medicines/detials/Amoxicillin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines",
+            "detials",
+            "Amoxicillin"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | عرض تفاصيل دواء محدد (Medicine Profile) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/medicines/detials/:name` |\n| **المعاملات (Params)** | `name`: اسم الدواء المراد البحث عنه. |\n| **الوصف المنطقي** | يبحث عن السجل المطابق للاسم؛ وفي حال عدم وجوده، يرجع تنبيهاً للمستخدم. |\n| **الرد الناجح** | `200 OK` مع كامل بيانات الصنف. |\n| **الرد الفاشل** | `404 Not Found` إذا لم يتم العثور على الاسم في القاعدة. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET MEDICINES by CATEGORIES",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/medicines/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | فلترة الأدوية حسب الفئة الطبية (Categorized Medicines) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/medicines/:categoryId` |\n| **المعاملات (Params)** | `categoryId`: الرقم التعريفي للصنف الطبي. |\n| **الوصف المنطقي** | يقوم بعمل ربط (JOIN) بين جدولي الأدوية والأرفف (`SHELF`) لعرض الأدوية المتوفرة في قسم معين. |\n| **الرد الناجح (Success)** | `200 OK` مع قائمة بالأدوية التي تنتمي لهذا الصنف فقط. |\n| **الرد الفاشل (Error)** | `500 Server Error` في حال حدوث خطأ في الاستعلام أو الاتصال. |"
+      },
+      "response": []
+    },
+    {
+      "name": "POST MEDICINE",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"NAME\": \"Sulfamethoxazole\",\r\n    \"MANUFACTURE\": \"Roche\",\r\n    \"QUANTITY\": 15,\r\n    \"EXPIRYDATE\": \"2026-12-31\",\r\n    \"IDS\": 102,\r\n    \"PRICE\": 11.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/medicines/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines",
+            "add"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | إدخال صنف جديد للمخزن (Inventory Intake) |\n| **الطريقة (Method)** | `POST` |\n| **الرابط (URL)** | `http://localhost:3000/medicines/add` |\n| **المدخلات (Body)** | `NAME`, `MANUFACTURE`, `QUANTITY`, `EXPIRYDATE`, `IDS`, `PRICE`. |\n| **الوصف المنطقي** | إدراج سجل جديد مع تحويل التاريخ باستخدام `TO_DATE` وتفعيل `autoCommit` لضمان الحفظ الفوري. |\n| **الرد الناجح** | `201 Created` مع تأكيد عدد الصفوف المتأثرة. |"
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE MEDICINE",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/medicines/delete/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines",
+            "delete",
+            ""
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | شطب سجل دواء (Permanent Removal) |\n| **الطريقة (Method)** | `DELETE` |\n| **الرابط (URL)** | `http://localhost:3000/medicine/delete/:name` |\n| **الوصف المنطقي** | حذف الصنف نهائياً من قاعدة البيانات باستخدام الاسم كمعرف فريد. |\n| **الرد الناجح** | `200 OK` مع تأكيد عملية الحذف. |\n| **الرد الفاشل** | `404 Not Found` إذا لم يجد النظام دواءً بهذا الاسم لحذفه. |"
+      },
+      "response": []
+    },
+    {
+      "name": "UPDATE MEDICINE",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"MANUFACTURE\": \"Global Pharma\",\r\n    \"QUANTITY\": 2,\r\n    \"EXPIRYDATE\": \"2027-11-10\",\r\n    \"PRICE\": 15.5\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/medicines/update/Amoxicillin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "medicines",
+            "update",
+            "Amoxicillin"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تعديل بيانات دواء موجود (Modify Medicine) |\n| **الطريقة (Method)** | `PUT` |\n| **الرابط (URL)** | `http://localhost:3000/medicines/update/:name` |\n| **المدخلات (Body)** | الحقول المراد تعديلها (الكمية، السعر، الشركة، التاريخ). |\n| **الوصف المنطقي** | يقوم بتحديث السجل بناءً على الاسم؛ ويستخدم `rowsAffected` للتأكد من نجاح التعديل. |\n| **الرد الناجح** | `200 OK` مع رسالة تأكيد النجاح. |\n| **الرد الفاشل** | `404 Not Found` في حال كان اسم الدواء غير مسجل مسبقاً. |"
+      },
+      "response": []
+    }
+  ]
+}

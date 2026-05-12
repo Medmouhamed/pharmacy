@@ -1,0 +1,150 @@
+:root {
+  --primary: #4e73df;
+  --success: #1cc88a;
+  --danger: #e74a3b;
+  --bg: #f4f6fb;
+  --card: #fff;
+  --border: #e3e6f0;
+  --text: #2c2f33;
+  --placeholder: #a8b1c2;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma;
+  background: var(--bg);
+  padding: 30px
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px
+}
+
+.title i {
+  color: var(--primary)
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px
+}
+
+.search-container div {
+  position: relative;
+  width: 380px
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 20px 12px 36px;
+  border-radius: 25px;
+  border: 1px solid var(--border)
+}
+
+.search-container i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary)
+}
+
+.filter-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+  margin-bottom: 15px;
+  overflow-x: auto
+}
+
+.filters {
+  display: flex;
+  gap: 14px;
+  min-width: 1150px
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 130px
+}
+
+.filter-group label {
+  font-size: 12px;
+  color: #6c757d;
+  display: flex;
+  gap: 6px
+}
+
+.filter-group label i {
+  color: var(--primary)
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border)
+}
+
+.table-card {
+   background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+thead {
+  background: var(--primary);
+  color: #fff
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: center
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border)
+}
+
+tbody tr:nth-child(even) {
+  background: #fafbff
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600
+}
+
+.badge.in {
+  background: #d1f3e4;
+  color: var(--success)
+}
+
+.badge.out {
+  background: #f8d7da;
+  color: var(--danger)
+}
+
+.price {
+  color: var(--primary);
+  font-weight: 600
+}

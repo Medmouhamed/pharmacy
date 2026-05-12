@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Sales Panel</title>
+    <link rel="stylesheet" href="css/sales.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Pharmacy Operations Console</h1>
+            <p>Manage pending prescriptions and inventory levels</p>
+        </div>
+
+        <div class="card main-table-card">
+            <div class="card-header">
+                <h3> Pending Fulfillment List</h3>
+                <button onclick="loadPendingPrescriptions()" class="btn-refresh"> Update Data</button>
+            </div>
+            <div class="table-wrapper">
+                <table id="pendingTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Patient Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <div class="card control-panel">
+                <h3>  Delivery Form</h3>
+                <div class="input-box">
+                    <label>Prescription ID</label>
+                    <input type="number" id="prescriptionId" placeholder="Type ID or select from table">
+                </div>
+                
+                <div class="input-box">
+                    <label>Your Employee ID</label>
+                    <input type="number" id="salesIdInput" placeholder="Enter your Staff ID">
+                </div>
+
+                <button id="deliverBtn" class="btn-primary">Confirm</button>
+                <div id="statusMessage" class="status-msg"></div>
+            </div>
+
+            <div class="card log-panel">
+                <h3> Live Activity Log</h3>
+                <ul id="logList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/sales.js"></script>
+</body>
+</html>

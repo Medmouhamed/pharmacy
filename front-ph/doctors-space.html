@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/doctor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/product-image-slider-1.jpg" alt="Logo" style="height: 40px;">
+        </div>
+        <ul class="nav-links">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./home.html#serv">Setvices</a></li>
+            <li><a href="./home.html#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+
+    <div id="doctor-workspace">
+
+        <section id="view-doctors-section" class="hidden">
+            <h2>Our Registered Doctors</h2>
+            <div id="doctors-list" class="doctors-grid">
+
+            </div>
+        </section>
+
+        <section id="register-doctor-section" class="registration-card hidden">
+            <div class="reg-header">
+                <div class="icon-circle">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h2>Doctor Onboarding</h2>
+                <p>Join our medical network to start issuing digital prescriptions.</p>
+            </div>
+
+            <form id="doctor-reg-form" class="modern-form">
+                <div class="input-field">
+                    <i class="fas fa-signature"></i>
+                    <input type="text" id="reg-name" placeholder="Full Name" required>
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-stethoscope"></i>
+                    <input type="text" id="reg-speciality" placeholder="Medical Speciality (e.g. Cardiology)" required>
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-hospital-alt"></i>
+                    <input type="text" id="reg-address" placeholder="Clinic / Hospital Address" required>
+                </div>
+
+                <button type="submit" class="reg-btn">
+                    <span>Create Professional Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </section>
+
+        <section id="prescription-section" class="workspace-card hidden">
+            <div class="prescription-header">
+                <div class="header-info">
+                    <i class="fas fa-file-medical-alt"></i>
+                    <div>
+                        <h2>Digital Prescription Tool</h2>
+                        <p>Fill in the patient details and medication list below</p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="prescription-form" class="prescription-body">
+                <div class="patient-selection-area">
+                    <div class="input-group">
+                        <label for="patient-select"><i class="fas fa-user-injured"></i> Target Patient</label>
+                        <div class="custom-select-wrapper">
+                            <select id="patient-select" required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="medication-management">
+                    <div class="section-title">
+                        <h3><i class="fas fa-pills"></i> Medications List</h3>
+                        <button type="button" class="add-row-btn" onclick="addMedicineRow()">
+                            <i class="fas fa-plus"></i> Add Medicine
+                        </button>
+                    </div>
+
+                    <div id="medicines-list" class="med-grid-header">
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="submit-prescription-btn">
+                        <i class="fas fa-check-circle"></i> Complete & Issue Prescription
+                    </button>
+                </div>
+            </form>
+        </section>
+
+
+
+        <section id="patient-history-section" class="doctor-only hidden">
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> Patient Medical History</h2>
+                <p class="fild-history">Search and view previous prescriptions</p>
+            </div>
+
+            <div class="search-box">
+                <select id="history-patient-select">
+                </select>
+                <button onclick="viewPatientHistory()" class="btn-search">
+                    <i class="fas fa-search"></i> View History
+                </button>
+            </div>
+
+            <div id="history-results" class="history-cards-container">
+            </div>
+        </section>
+    </div>
+
+
+    <script src="./js/doctors.js"></script>
+</body>
+
+</html>

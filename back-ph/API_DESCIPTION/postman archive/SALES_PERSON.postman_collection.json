@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "f16766e3-61ba-4217-97bd-4194cfd710c6",
+    "name": "SALES PERSON",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-f16766e3-61ba-4217-97bd-4194cfd710c6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET EMPLOYEES",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | استعراض كافة موظفي المبيعات |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/sales/employees` |\n| **الوصف المنطقي** | جلب كافة السجلات من جدول `SALESPERSON` لعرض طاقم العمل. |\n| **الرد الناجح** | `200 OK` مع مصفوفة تحتوي على بيانات جميع الموظفين. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET EMP BY ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | البحث عن موظف مبيعات محدد |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/sales/emoloyee/:id_salesPerson` |\n| **الوصف المنطقي** | استرجاع بيانات الموظف بناءً على معرفه الرقمي الفريد `ID_SP`. |\n| **الرد الفاشل** | `404 Not Found` في حال كان الموظف غير مسجل في النظام. |"
+      },
+      "response": []
+    },
+    {
+      "name": "Post Employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"NAME\": \"Mouad\",\r\n        \"LANAME\": \"Bouanai\",\r\n        \"ID_P\": 3\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sales/add-employee",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sales",
+            "add-employee"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تسجيل موظف مبيعات جديد |\n| **الطريقة (Method)** | `POST` |\n| **الرابط (URL)** | `http://localhost:3000/sales/add-employee` |\n| **المنطق البرمجي** | يقوم النظام بالتحقق أولاً من وجود الصيدلية (`ID_P`) قبل ربط الموظف الجديد بها لضمان تكامل البيانات. |\n| **الرد الناجح** | `200 OK` مع رسالة تأكيد إضافة الموظف بنجاح 🟢. |"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Pharmacy",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"NAME\": \"Mouad\",\r\n    \"LANAME\": \"Bouanaiii\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sales/employee/upadate/20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sales",
+            "employee",
+            "upadate",
+            "20"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تعديل الملف الشخصي للموظف |\n| **الطريقة (Method)** | `PUT` |\n| **الرابط (URL)** | `http://localhost:3000/sales/employee/upadate/:id_salesPerson` |\n| **المدخلات (Body)** | `NAME`, `LANAME`, `ID_P`. |\n| **الوصف المنطقي** | تحديث بيانات الموظف بعد التأكد من وجوده في النظام باستخدام معرفه الخاص. |"
+      },
+      "response": []
+    },
+    {
+      "name": "UPDATE PHARMACY",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/sales/deliver/21/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sales",
+            "deliver",
+            "21",
+            "2"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تنفيذ وصرف الوصفة الطبية (Fulfillment) |\n| **الطريقة (Method)** | `PUT` |\n| **الرابط (URL)** | `http://localhost:3000/sales/deliver/:id_prescription/:id_salesPerson` |\n| **المنطق البرمجي** | يقوم الموظف بإدخال رقم الوصفة ليتم: 1. التأكد أنها لم تُصرف مسبقاً. 2. تغيير حالتها إلى `DELIVERED`. 3. توقيع العملية باسم الموظف. 4. خصم الكمية من المخزن. |\n| **الأمان (Transactions)** | يستخدم نظام الـ `Commit/Rollback`؛ فإذا فشل تحديث المخزن، يتم إلغاء توقيع الوصفة تلقائياً لضمان سلامة البيانات. |\n| **التتبع (Traceability)** | يسمح للمدير بتتبع أي خطأ (جرعة خاطئة، دواء منتهي) ومعرفة الموظف المسؤول بدقة. |"
+      },
+      "response": []
+    }
+  ]
+}

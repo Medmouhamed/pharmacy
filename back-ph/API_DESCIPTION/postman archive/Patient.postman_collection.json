@@ -1,0 +1,135 @@
+{
+  "info": {
+    "_postman_id": "42658f56-4e93-4e46-8da0-00b47b376ac1",
+    "name": "Patient",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-42658f56-4e93-4e46-8da0-00b47b376ac1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET PATIENTS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/patientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patientes"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | استعراض كافة المرضى المسجلين |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/patientes` |\n| **الوصف المنطقي** | تنفيذ استعلام لجلب كافة سجلات المرضى من جدول `PATIENT` بصيغة كائنات JSON. |\n| **الرد الناجح** | `200 OK` مع قائمة تحتوي على كافة بيانات المرضى. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET PATIENT BY ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/patientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patientes",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | البحث عن مريض محدد (Patient Profile) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/patientes/:id_patient` |\n| **الوصف المنطقي** | جلب بيانات مريض واحد باستخدام معرفه الرقمي الفريد `ID_P` الممرر في الرابط. |\n| **الرد الناجح** | `200 OK` مع بيانات المريض، أو `404` في حال عدم وجوده. |"
+      },
+      "response": []
+    },
+    {
+      "name": "POST PATIENTS",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"FANAME\": \"Ahmed\",\r\n    \"LNAME\": \"Mansouri\",\r\n    \"AGE\": 45\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/patientes/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patientes",
+            "add"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تسجيل مريض جديد في النظام |\n| **الطريقة (Method)** | `POST` |\n| **الرابط (URL)** | `http://localhost:3000/patientes/add` |\n| **المدخلات (Body)** | `FANAME` (الاسم)، `LNAME` (اللقب)، `AGE` (العمر). |\n| **الرد الناجح** | `200 OK` مع رسالة تأكيد النجاح 🟢. |"
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE PATIENT",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/patientes/delete/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patientes",
+            "delete",
+            "2"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | حذف سجل مريض من المنظومة |\n| **الطريقة (Method)** | `DELETE` |\n| **الرابط (URL)** | `http://localhost:3000/patientes/delete/:id_patient` |\n| **حماية البيانات** | يمنع الحذف (`409 Conflict`) إذا كان للمريض وصفات سابقة لضمان سلامة الأرشيف. |"
+      },
+      "response": []
+    },
+    {
+      "name": "PATIENT HISTORY",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/patientes/history/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patientes",
+            "history",
+            "2"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | تقرير التاريخ الطبي للمريض (Medical History) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/patientes/history/:id_patient` |\n| **الوصف المنطقي** | تجميع بيانات الوصفات والأدوية والأطباء المباشرين وجهات الصرف في كائن واحد منظم. |\n| **المميزات** | يستخدم نظام التجميع (Reduce) لربط عدة أدوية تحت وصفة واحدة لتسهيل العرض. |"
+      },
+      "response": []
+    },
+    {
+      "name": "SEARCH PATIENT NEEDS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | نظام البحث الذكي عن توفر الوصفة |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/patientes/search/:id_prescription` |\n| **الوصف المنطقي** | فحص المخزون العام لكل دواء في الوصفة؛ وفي حال التوفر، يتم عرض الصيدليات المتاحة. |\n| **الرد الفاشل** | `400 UNAVAILABLE` في حال نفاذ أي صنف من أصناف الوصفة. |"
+      },
+      "response": []
+    }
+  ]
+}

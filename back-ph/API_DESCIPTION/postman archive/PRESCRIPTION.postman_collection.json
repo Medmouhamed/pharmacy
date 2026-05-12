@@ -1,0 +1,53 @@
+{
+  "info": {
+    "_postman_id": "62ed4d34-0f03-4031-a261-555d3b448665",
+    "name": "PRESCRIPTION",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-62ed4d34-0f03-4031-a261-555d3b448665?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET PRESCRIPTION",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/prscription/details",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "prscription",
+            "details"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | استعراض السجلات الشاملة للوصفات |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/prscription/details` |\n| **الوصف المنطقي** | جلب بيانات الوصفة مع الطبيب والمريض وقائمة الأدوية المرتبطة عبر ربط 4 جداول مع تجميع الأدوية برمجياً باستخدام `reduce`. |\n| **الرد الناجح** | `200 OK` مع مصفوفة تحتوي على كائنات متداخلة (Nested Objects) لكل وصفة. |"
+      },
+      "response": []
+    },
+    {
+      "name": "POST PRESCRIPTION",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | إنشاء وصفة طبية إلكترونية جديدة |\n| **الطريقة (Method)** | `POST` |\n| **الرابط (URL)** | `http://localhost:3000/prscription/add` |\n| **المدخلات (Body)** | `DATE_P`, `ID_DOCTOR`, `ID_PATIENT`, ومصفوفة أدوية `MEDICINES`. |\n| **الأمان التقني** | يستخدم نظام المعاملات (Database Transactions)؛ حيث يتم التأكد من إدراج الوصفة وكافة أدويتها بنجاح قبل عمل `commit`. |\n| **المنطق البرمجي** | 1\\. إدراج الوصفة واسترجاع الـ ID المولد تلقائياً عبر `RETURNING ID`. 2. إدراج قائمة الأدوية في جدول `INCLUDE` باستخدام حلقة تكرار (Loop). |\n| **حماية البيانات** | في حال حدوث أي خطأ، يتم تنفيذ `rollback` لإلغاء كافة التغييرات وضمان عدم وجود بيانات ناقصة. |"
+      },
+      "response": []
+    }
+  ]
+}

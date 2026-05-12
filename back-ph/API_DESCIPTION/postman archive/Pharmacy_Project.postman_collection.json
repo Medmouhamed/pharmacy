@@ -1,0 +1,72 @@
+{
+  "info": {
+    "_postman_id": "83a6971e-5a18-47fe-858e-e75eb8aafd50",
+    "name": "Pharmacy Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-83a6971e-5a18-47fe-858e-e75eb8aafd50?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET SHELFS by CATEGORY",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/shelfs/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "shelfs",
+            "1"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | جلب أرفف فئة محددة (Category Specific Shelfs) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/shelfs/:categoryId` |\n| **المعاملات (Params)** | `categoryId`: رقم الفئة الطبية المراد معرفة أرففها. |\n| **الوصف المنطقي** | تصفية الأرفف بناءً على الفئة لتسهيل عملية ترتيب وتخزين الأدوية. |\n| **الرد الناجح** | `200 OK` مع قائمة بمعرفات الأرفف (IDS) المرتبطة بالفئة. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET CATEGORYIES",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/categories",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "categories"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | عرض الفئات الطبية (Medical Categories) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/categories` |\n| **الوصف المنطقي** | استرجاع كافة التصنيفات الطبية (مثل: مسكنات، مضادات) من جدول `CATEGORY`. |\n| **الرد الناجح** | `200 OK` مع قائمة بأسماء ومعرفات الفئات. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET SHELFS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/shelfs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "shelfs"
+          ]
+        },
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | عرض كافة الأرفف (Physical Locations) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/shelfs` |\n| **الوصف المنطقي** | جلب قائمة كاملة بكافة الأرفف المتاحة في قاعدة البيانات لتنظيم المخزون. |\n| **الرد الناجح** | `200 OK` مع مصفوفة تحتوي على معرفات الأرفف وارتباطها بالأصناف. |"
+      },
+      "response": []
+    }
+  ]
+}

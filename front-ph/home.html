@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+
+    <div id="role-modal" class="modal-overlay">
+
+        <div class="modal-content">
+            <h2>Welcome to Kfn-Ph</h2>
+            <p>Who are you Please select to continue:</p>
+            <div class="modal-cards">
+                <div class="m-card" onclick="chooseRole('doctor')">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Doctor</h3>
+                    <span>Access E-Prescriptions</span>
+                </div>
+
+                <div class="m-card" onclick="chooseRole('patient')">
+                    <i class="fas fa-user-injured"></i>
+                    <h3>Patient</h3>
+                    <span>View Medical History</span>
+                </div>
+
+                <div class="m-card" onclick="chooseRole('salesperson')">
+                    <i class="fas fa-pills"></i>
+                    <h3>SalesPerson</h3>
+                    <span>Manage Inventory</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="blurred">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/product-image-slider-1.jpg" alt="Logo" style="height: 40px;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#serv">Setvices</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+
+            </ul>
+        </nav>
+
+        <header class="hero-section">
+            <div class="hero-text">
+                <h1>Your Digital Pharmacy for Modern Living</h1>
+                <a href="smart.html">
+                    <button class="shop-now-btn">Shop Now</button>
+                </a>
+
+            </div>
+            <div class="hero-image">
+                <img src="assets/product-image-slider-2.jpg" alt="Pharmacy Illustration">
+            </div>
+        </header>
+
+        <!-- acsses section -->
+
+        <section id="serv" class="quick-access">
+            <div class="container">
+
+                <h2 class="section-title">Explore Our Servicies</h2>
+
+                <div class="access-grid">
+
+                    <div class="access-card" onclick="location.href='doctors-space.html'">
+                        <div class="icon-box"><i class="fas fa-user-md"></i></div>
+
+                        <div class="decrp">
+                            <h3>Doctors Space</h3>
+                            <p>Issue new e-prescriptions and manage patient medical records efficiently.</p>
+                            <span class="link-text">Enter Space <i class="fas fa-arrow-right"></i></span>
+                        </div>
+
+                    </div>
+
+                    <div class="access-card" onclick="location.href='smart.html'">
+                        <div class="icon-box"><i class="fas fa-user-injured"></i></div>
+                        <div class="decrp">
+                            <h3>Patients Space</h3>
+                            <p>Track your prescriptions, medical history, and find nearest available medications.</p>
+                            <span class="link-text">Enter Space <i class="fas fa-arrow-right"></i></span>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="access-card" onclick="location.href='PharmacyManagmentSystem.html'">
+                        <div class="icon-box"><i class="fas fa-cash-register"></i></div>
+                        <div class="decrp">
+                            <h3>Sales & Inventory</h3>
+                            <p>Process prescriptions, manage pharmacy stock, and track daily sales transactions.</p>
+                            <span class="link-text">Enter Space <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- about us section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-wrapper">
+
+                    <div class="about-image">
+                        <img src="assets/AboutUs.png" alt="About Kfn-ph">
+                    </div>
+
+                    <div class="about-text">
+                        <h2>About Us</h2>
+                        <p>
+                            Welcome to <strong>Kfn-ph</strong>, your trusted partner in health and wellness.
+                            Our mission is to provide you with high-quality, accessible, and affordable
+                            healthcare solutions tailored to meet your unique needs.
+                        </p>
+                        <p>
+                            Kfn-ph was founded in 2024 and it is committed to offering an extensive range
+                            of medications, healthcare products, and wellness services all from the comfort
+                            of your home. With a focus on safety, convenience, and customer care, we are
+                            dedicated to helping you live healthier and happier lives.
+                        </p>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+
+            <div class="container">
+
+                <h2 class="section-title">Contact Us</h2>
+
+                <div class="contact-wrapper">
+
+                    <div class="contact-image">
+                        <img src="assets/contact-us-img.jpg" alt="Contact Illustration">
+                    </div>
+
+                    <div class="contact-form-container">
+
+                        <form id="main-contact-form">
+                            <div class="form-row">
+
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" placeholder="Phone number">
+                                </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <div class="file-input-wrapper">
+                                        <input type="file" id="file-upload">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea rows="5" placeholder="Write your message here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-logo">💊 PharmacyX</div>
+                <p>Providing high-quality healthcare solutions since 2024. Your health is our priority.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Access Points</h3>
+                <ul>
+                    <li><a href="doctors-space.html">Doctor Interface</a></li>
+                    <li><a href="sales.html">Patient Space</a></li>
+                    <li><a href="PharmacyManagmentSystem.html">Pharmacy & Sales</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Find Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Guelma, Algeria</p>
+                    <p><i class="fas fa-phone"></i> +213 (0) 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> support@pharmacyx.dz</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kfn-ph | University of 08 May 1945 Guelma</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

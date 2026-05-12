@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "76541450-750c-47c5-a1c9-547fc8d9e2c5",
+    "name": "Pharmacy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50212340",
+    "_collection_link": "https://go.postman.co/collection/50212340-76541450-750c-47c5-a1c9-547fc8d9e2c5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Phrmacy Logs",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Test 1: Verify status code is 200",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "// Test 2: Verify response time is reasonable (under 2000ms)",
+              "pm.test(\"Response time is under 2000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "// Test 3: Verify response is an array (logs array)",
+              "pm.test(\"Response is an array\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('array');",
+              "});",
+              "",
+              "// Test 4: Verify logs array structure (if not empty)",
+              "pm.test(\"Each log entry has expected structure\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    ",
+              "    if (jsonData.length > 0) {",
+              "        jsonData.forEach((log) => {",
+              "            // Verify log is an object",
+              "            pm.expect(log).to.be.an('object');",
+              "            ",
+              "            // Common log fields that might exist - adjust based on actual structure",
+              "            // These are placeholder checks that can be customized once the endpoint is configured",
+              "            pm.expect(Object.keys(log).length).to.be.above(0);",
+              "        });",
+              "    }",
+              "});",
+              "",
+              "// Test 5: Verify Content-Type header",
+              "pm.test(\"Content-Type header is application/json\", function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | سجلات التسليم اللوجستية (Traceability Logs) |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/pharmacy/delivery-logs` |\n| **الوصف المنطقي** | استعلام معقد يربط جداول (Prescription, Salesperson, Pharmacy) لتتبع مسار الوصفة. |\n| **الهدف التقني** | توفير تقرير يوضح: رقم الوصفة، اسم الموظف المسؤول، اسم الصيدلية، وموقع التسليم بدقة. |\n| **أهمية المسار** | يحقق مطلب \"Traceability\" لضمان الرقابة الكاملة على صرف الأدوية في النظام. |"
+      },
+      "response": []
+    },
+    {
+      "name": "GET PHARMACY",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Test 1: Verify status code is 200",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "// Test 2: Verify response time is reasonable (under 2000ms)",
+              "pm.test(\"Response time is under 2000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "// Test 3: Verify response is an array",
+              "pm.test(\"Response is an array\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('array');",
+              "});",
+              "",
+              "// Test 4: Verify array is not empty",
+              "pm.test(\"Response array is not empty\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "// Test 5: Verify each pharmacy object has required fields with correct types",
+              "pm.test(\"Each pharmacy has required fields with correct types\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    ",
+              "    jsonData.forEach((pharmacy, index) => {",
+              "        // Verify ID_P exists and is a number",
+              "        pm.expect(pharmacy).to.have.property('ID_P');",
+              "        pm.expect(pharmacy.ID_P).to.be.a('number');",
+              "        ",
+              "        // Verify NAME exists and is a string",
+              "        pm.expect(pharmacy).to.have.property('NAME');",
+              "        pm.expect(pharmacy.NAME).to.be.a('string');",
+              "        ",
+              "        // Verify ADDRESS exists and is a string",
+              "        pm.expect(pharmacy).to.have.property('ADDRESS');",
+              "        pm.expect(pharmacy.ADDRESS).to.be.a('string');",
+              "    });",
+              "});",
+              "",
+              "// Test 6: Verify response structure matches expected schema",
+              "pm.test(\"Response structure matches expected pharmacy schema\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const expectedKeys = ['ID_P', 'NAME', 'ADDRESS'];",
+              "    ",
+              "    jsonData.forEach((pharmacy) => {",
+              "        // Verify each object has exactly the expected keys",
+              "        const actualKeys = Object.keys(pharmacy);",
+              "        pm.expect(actualKeys.sort()).to.eql(expectedKeys.sort());",
+              "        ",
+              "        // Verify NAME and ADDRESS are non-empty strings",
+              "        pm.expect(pharmacy.NAME.trim()).to.not.be.empty;",
+              "        pm.expect(pharmacy.ADDRESS.trim()).to.not.be.empty;",
+              "        ",
+              "        // Verify ID_P is a positive integer",
+              "        pm.expect(pharmacy.ID_P).to.be.above(0);",
+              "        pm.expect(Number.isInteger(pharmacy.ID_P)).to.be.true;",
+              "    });",
+              "});",
+              "",
+              "// Test 7: Verify Content-Type header",
+              "pm.test(\"Content-Type header is application/json\", function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "| الخاصية | التفاصيل |\n| --- | --- |\n| **اسم المسار** | استعراض قائمة فروع الصيدليات |\n| **الطريقة (Method)** | `GET` |\n| **الرابط (URL)** | `http://localhost:3000/pharmacy/details` |\n| **الوصف المنطقي** | جلب كافة السجلات من جدول `PHARMACY` لعرض معلومات المواقع والعناوين. |\n| **الرد الناجح** | `200 OK` مع مصفوفة JSON تحتوي على بيانات جميع الفروع المتاحة. |"
+      },
+      "response": []
+    }
+  ]
+}

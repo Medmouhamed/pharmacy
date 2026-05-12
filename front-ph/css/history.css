@@ -1,0 +1,286 @@
+
+#patient-history-section {
+    background: #ffffffc5;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
+}
+
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #eef2f6;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+#history-patient-select {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #b2d5f9;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+#history-patient-select:focus {
+    border-color: #3b82f6;
+}
+
+.btn-search {
+    background: #2563eb;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-search:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+
+.history-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.history-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+    border-color: #dbeafe;
+}
+
+.card-header {
+    background: #f8fafc;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pres-id-badge {
+    background: #eff6ff;
+    color: #1e40af;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.date-text {
+    color: #64748b;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-content {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .card-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.doctor-info-box {
+    border-right: 1px solid #f1f5f9;
+    padding-right: 15px;
+}
+
+.doctor-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.speciality-tag {
+    color: #3b82f6;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+
+.meds-display-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.med-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #f9fbff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+}
+
+.med-item:hover {
+    border-color: #dbeafe;
+    background: #f1f7ff;
+}
+
+.med-name-bold {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.dosage-badge {
+    font-size: 0.8rem;
+    color: #475569;
+    background: #ffffff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 1px solid #e2e8f0;
+}
+
+
+
+.history-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 20px 0;
+}
+
+.history-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.252);
+}
+
+.history-card:hover {
+    transform: translatey(-5px);
+}
+
+.card-header {
+    background: #cae4ff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.pres-id {
+    font-weight: 800;
+    color: #3b82f6;
+    margin-right: 15px;
+}
+
+.status-badge {
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.info-row {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.info-row i {
+    color: #64748b;
+    width: 25px;
+}
+
+.medications-table {
+    margin-top: 15px;
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.table-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.medications-table ul {
+    list-style: none;
+    padding: 0;
+}
+
+.medications-table li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.medications-table li:last-child {
+    border-bottom: none;
+}
+
+.med-name {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.med-details {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.print-mini-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #334155;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 0 15px 15px;
+}
+
+
+.fild-history {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    padding: 20px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Smart Search</title>
+    <link rel="stylesheet" href="css/smart.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Inventory Search</h1>
+            <p>Find pharmacies that have <strong>all</strong> your prescription items in stock.</p>
+        </header>
+
+        <div class="search-section">
+            <input type="number" id="prescInput" placeholder="Enter ID..... ">
+            <button onclick="runSmartSearch()">Search Inventory</button>
+        </div>
+
+        <div id="loader" class="hidden">Scanning all pharmacy branches...</div>
+
+        <div id="resultsContainer">
+        </div>
+        <div class="card" style="margin-top: 20px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
+            <h3>Staff Access</h3>
+            <div class="search-section">
+                <input type="number" id="staffIdInput" placeholder="Enter Staff ID to access Sales">
+                <button onclick="verifyStaffAndRedirect()" style="background: #4e73df;">Enter Sales Panel</button>
+            </div>
+            <div id="staffStatus" style="margin-top: 10px; font-size: 14px;"></div>
+        </div>
+    </div>
+
+    <script src="js/smart.js"></script>
+</body>
+
+</html>
